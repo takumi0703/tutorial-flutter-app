@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http; // httpという変数を通して、httpパッケージにアクセス
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:qiita_search/models/article.dart';
+import 'package:qiita_search_app/models/article.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -19,7 +19,21 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         title: const Text('Qiita Search'),
       ),
-      body: Container(),
+      body: const Column(
+        children: [
+          Padding(
+            // symmetric で、縦方向(vertical)に12px、横方向(horizontal)に36pxのpaddingを設定
+            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 36),
+            child: TextField(
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(hintText: '検索キーワードを入力してください',),
+            ),
+          )
+        ],
+      )
     );
   }
 }
