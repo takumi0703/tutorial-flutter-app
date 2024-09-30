@@ -14,6 +14,8 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
 
+  List<Article> articles = [];
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -30,6 +32,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 color: Colors.black,
               ),
               decoration: InputDecoration(hintText: '検索キーワードを入力してください',),
+              onSubmitted: (String value) async {
+                // 検索API関数を呼び出し、結果を状態管理できる変数に代入
+                final results = await searchQiita(value);
+                setState(()=> articles = results);
+              },
             ),
           )
         ],
