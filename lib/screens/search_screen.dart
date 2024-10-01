@@ -41,15 +41,10 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           // 結果一覧
-          ArticleContainer(
-            article: Article(
-              title: 'flutterでホゲホゲやってみた',
-              user: User(id: 'hoge109',profileImageUrl: 'https://example.com'),
-              createdAt: DateTime.now(),
-              tags: ['tag1', 'tag2'],
-              url: 'https://example.com',
-            ),
-          ),
+          // ListView でスクロール可能にする
+          // Expanded を使用しないと、縦方向にどこまでも大きくなろうとする習性があり、表示が崩れるので、
+          // Expanded で親Widgetのサイズいっぱいに広げるという制限をかけているらしい
+          Expanded(child: ListView(children: articles.map((article) => ArticleContainer(article: article)).toList())),
         ],
       )
     );
