@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http; // httpという変数を通して、httpパッケージにアクセス
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:qiita_search_app/models/article.dart';
-import 'package:qiita_search_app/models/user.dart';
 import 'package:qiita_search_app/widgets/article_container.dart';
 
 class SearchScreen extends StatefulWidget {
